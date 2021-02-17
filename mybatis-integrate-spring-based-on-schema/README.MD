@@ -9,12 +9,19 @@
 1.**所谓集成到spring，其实就是将 mybatis 相关的 bean，纳入spring的容器内进行管理**，这里用到的是IOC功能。
 所以，我们需要配置一下 bean
 例如：
-- 负责管理连接的 SqlSessionFactoryBean
-- Mapper 接口的实例bean
+- 负责管理连接和mybatis相关配置的 SqlSessionFactoryBean
+- Mapper接口代理类的生产者，MapperFactoryBean
 
 2.我们定义的**Mapper是**interface,并没有具体逻辑？
 那么逻辑是怎么产生并执行的呢？
-其实这里是**用JDK的动态代理实现的**，动态的生成Mapper的实现类，来执行我们在xml中配置的sql。
+其实这里是**用JDK的动态代理实现的**，想方设法通过拦截器方法回调，来执行我们在xml中配置的sql。
+
+
+3.回望初心，mybatis的作用是什么？
+目前我们只关注的是，通过mybatis提供的一些配置规则，可以达到执行sql的目的。
+作为开发者，只提供了 Mapper interface，并不提供具体实现类，**mybatis只是基于JDK动态代理的能力，想方设法（即所谓的源码。。。）达到执行我们想要的sql目的。
+如是而已。**
+
 
 ### 核心配置详解
 集成mybatis的核心配置
@@ -115,3 +122,16 @@
 </beans>
 ```
 
+### SQL 脚本
+```sql
+CREATE TABLE `t_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+```
+
+**项目地址** 
+
+项目供参考，具体代码在module **mybatis-integrate-spring-based-on-schema** 
+[github](https://github.com/yuansaysay/spring-aop-practise-handbyhand.git)       

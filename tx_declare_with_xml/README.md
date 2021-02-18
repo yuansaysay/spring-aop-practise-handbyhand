@@ -117,4 +117,4 @@ public class TransactionTestMain {
 **项目地址** 
 
 项目供参考，具体代码在module **tx_declare_with_xml** 
-[项目](https://github.com/yuansaysay/spring-aop-practise-handbyhand.git)                  
+[github](https://github.com/yuansaysay/spring-aop-practise-handbyhand.git)                  

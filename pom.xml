@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.scj.demo</groupId>
+    <groupId>com.yss.demo</groupId>
     <artifactId>spring-aop-demo</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
@@ -21,6 +21,7 @@
         <module>transactionlearning</module>
         <module>tx_declare_with_xml</module>
         <module>mybatis-integrate-spring-based-on-schema</module>
+        <module>mybatis-basic</module>
     </modules>
 
     <properties>
